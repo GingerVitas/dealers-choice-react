@@ -37,7 +37,6 @@ class App extends Component {
         const cars = this.state.cars;
         const sales = this.state.sales;
         const selectedList = this.state.selectedList
-        console.log(employees, cars, sales)
         return (
             <div id="Main">
                 <div>
