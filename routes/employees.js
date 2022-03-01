@@ -1,12 +1,20 @@
 const router = require('express').Router()
-const { Employee } = require('../db/models');
+const { Employee, Sale, Car } = require('../db/models');
 
 module.exports = router
 
 router.get('/', async(req, res, next)=>{
     try{
         const employees = await Employee.findAll({
-            attributes: ['id', 'name']
+            attributes: ['id', 'name'],
+            include: [{
+                model: Sale,
+                attributes: ['color'],
+                include: [{
+                    model: Car,
+                    attributes: ['brand', 'modelName', 'cost']
+                }]
+            }]
         });
         res.json(employees)
     }
