@@ -6,8 +6,15 @@ module.exports = router;
 router.get('/', async(req, res, next) => {
     try{
         const sales = await Sale.findAll({
-            attributes: ['id', 'color', 'employeeId', 'carId'],
-            order: ['employeeId']
+            attributes: ['id', 'color'],
+            include: [{
+                model: Employee,
+                attributes: ['name']
+            },
+            {
+                model: Car,
+                attributes: ['brand', 'modelName', 'cost']
+            }],
         })
         res.json(sales)
     }

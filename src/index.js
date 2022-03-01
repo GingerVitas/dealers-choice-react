@@ -1,7 +1,9 @@
 import Axios from 'axios';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import EmployeeTable from './EmployeeTable'
+import EmployeeTable from './EmployeeTable';
+import InventoryTable from './InventoryTable';
+import SalesTable from './SalesTable'
 
 
 class App extends Component {
@@ -11,7 +13,9 @@ class App extends Component {
             employees: [],
             cars: [],
             sales: [],
-        }
+            selectedList: []
+        },
+        this.listSelector = this.listSelector.bind(this)
     }
 
     async componentDidMount() {
@@ -24,10 +28,15 @@ class App extends Component {
         this.setState({employees, cars, sales})
     }
 
+    async listSelector(arr) {
+        this.setState({selectedList: arr})
+    }
+
     render() {
         const employees = this.state.employees;
         const cars = this.state.cars;
         const sales = this.state.sales;
+        const selectedList = this.state.selectedList
         console.log(employees, cars, sales)
         return (
             <div id="Main">
@@ -36,12 +45,19 @@ class App extends Component {
                 </div>
                 <div id='navbar'>
                     <ul>
-                        <li>Employees</li>
-                        <li>Inventory</li>
+                        <li onClick={()=> this.listSelector(employees)}>Employees</li>
+                        <li onClick={()=> this.listSelector(cars)}>Inventory</li>
+                        <li onClick={()=> this.listSelector(sales)}>Sales</li>
                     </ul>
                 </div>
                 <div id='renderContainer'>
-                    <EmployeeTable employees={employees} />
+                    {
+                        selectedList === employees ? <EmployeeTable employees={employees} />
+                        : selectedList === cars ? <InventoryTable cars={cars} />
+                        : selectedList === sales ? <SalesTable sales={sales} />
+                        : []
+                    }
+                    
                 </div>
             </div>
         )

@@ -6,11 +6,13 @@ const EmployeeTable = props => {
 
     return (
         <table>
+            <tbody>
             <tr>
                 <th>Salesperson</th>
                 <th>Number of Sales</th>
             </tr>
-                {employees.map(employee=> <EmployeeRow key={employee.id} employee={employee} />)}    
+                {employees.map(employee=> <EmployeeRow key={employee.id} employee={employee} />)} 
+            </tbody>   
         </table>
     )
 }
