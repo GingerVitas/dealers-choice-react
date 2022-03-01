@@ -6,7 +6,8 @@ module.exports = router;
 router.get('/', async(req, res, next)=> {
     try{
         const cars = await Car.findAll({
-            attributes: ['id', 'brand', 'modelName', 'cost']
+            attributes: ['id', 'brand', 'modelName', 'cost'],
+            order: ['brand']
         });
         res.json(cars)
     }

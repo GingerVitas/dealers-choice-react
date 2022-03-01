@@ -9,7 +9,8 @@ router.get('/', async(req, res, next) => {
             attributes: ['id', 'color'],
             include: [{
                 model: Employee,
-                attributes: ['name']
+                attributes: ['name'],
+                order: ['name']
             },
             {
                 model: Car,

@@ -19,13 +19,20 @@ class App extends Component {
     }
 
     async componentDidMount() {
-        const employeeResponse = await Axios.get('/api/employees');
-        const employees = employeeResponse.data;
-        const carResponse = await Axios.get('/api/cars');
-        const cars = carResponse.data;
-        const salesResponse = await Axios.get('/api/sales');
-        const sales = salesResponse.data;
-        this.setState({employees, cars, sales})
+        const [employees, cars, sales] = await Promise.all([
+            Axios.get('/api/employees'),
+            Axios.get('/api/cars'),
+            Axios.get('/api/sales')
+        ]);
+        this.setState({employees:employees.data, cars:cars.data, sales:sales.data})
+        
+        // const employeeResponse = await Axios.get('/api/employees');
+        // const employees = employeeResponse.data;
+        // const carResponse = await Axios.get('/api/cars');
+        // const cars = carResponse.data;
+        // const salesResponse = await Axios.get('/api/sales');
+        // const sales = salesResponse.data;
+        // this.setState({employees, cars, sales})
     }
 
     async listSelector(arr) {
