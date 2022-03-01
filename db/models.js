@@ -49,7 +49,7 @@ const Sale = db.define('sale', {
     },
 });
 
-Sale.belongsTo(Employee);
+Sale.belongsTo(Employee, {as: 'Salesperson'});
 Sale.belongsTo(Car)
 Employee.hasMany(Sale);
 Car.hasMany(Sale);

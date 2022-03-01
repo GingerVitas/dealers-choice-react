@@ -2,17 +2,11 @@ const express = require('express');
 const app = express();
 const syncAndSeed = require('./db/seed')
 const { Employee, Sale } = require ('./db/models')
+const path = require('path')
 
-app.get('/', async(req, res, next) =>{
-    try{
-        res.send(await Employee.findAll({
-            include: Sale
-        }))
-    }
-    catch(ex){
-        next(ex)
-    }
-})
+app.use('/api/employees', require('./routes/employees'))
+app.use('/api/cars', require('./routes/cars'))
+app.use('/api/sales', require('./routes/sales'))
 
 const start = async() => {
     try{

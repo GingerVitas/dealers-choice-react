@@ -21,17 +21,17 @@ const syncAndSeed = async() => {
             Car.create({brand: 'Honda', modelName: 'Accord', cost: 32000}),
         ]);
         await Promise.all([
-            Sale.create({employeeId: lucy.id, carId: camry.id, color: 'Red'}),
-            Sale.create({employeeId: lucy.id, carId: camry.id, color: 'Silver'}),
-            Sale.create({employeeId: lucy.id, carId: fusion.id, color: 'Blue'}),
-            Sale.create({employeeId: moe.id, carId: rav4.id, color: 'Black'}),
-            Sale.create({employeeId: moe.id, carId: mustang.id, color: 'Red'}),
-            Sale.create({employeeId: larry.id, carId: civic.id, color: 'White'}),
-            Sale.create({employeeId: ethyl.id, carId: accord.id, color: 'White'}),
-            Sale.create({employeeId: ethyl.id, carId: accord.id, color: 'Blue'}),
-            Sale.create({employeeId: curly.id, carId: corolla.id, color: 'Black'}),
-            Sale.create({employeeId: curly.id, carId: corolla.id, color: 'Silver'}),
-            Sale.create({employeeId: curly.id, carId: camry.id, color: 'Blue'}),
+            Sale.create({SalespersonId: lucy.id, carId: camry.id, color: 'Red'}),
+            Sale.create({SalespersonId: lucy.id, carId: camry.id, color: 'Silver'}),
+            Sale.create({SalespersonId: lucy.id, carId: fusion.id, color: 'Blue'}),
+            Sale.create({SalespersonId: moe.id, carId: rav4.id, color: 'Black'}),
+            Sale.create({SalespersonId: moe.id, carId: mustang.id, color: 'Red'}),
+            Sale.create({SalespersonId: larry.id, carId: civic.id, color: 'White'}),
+            Sale.create({SalespersonId: ethyl.id, carId: accord.id, color: 'White'}),
+            Sale.create({SalespersonId: ethyl.id, carId: accord.id, color: 'Blue'}),
+            Sale.create({SalespersonId: curly.id, carId: corolla.id, color: 'Black'}),
+            Sale.create({SalespersonId: curly.id, carId: corolla.id, color: 'Silver'}),
+            Sale.create({SalespersonId: curly.id, carId: camry.id, color: 'Blue'}),
         ])
     }
     catch(ex){
