@@ -31,7 +31,7 @@ const Car = db.define('car', {
     },
 
     cost: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         validate: {
             notEmpty: true

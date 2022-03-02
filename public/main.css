@@ -1,0 +1,12 @@
+table {
+  margin: auto;
+}
+
+th {
+  font-weight: bold;
+  size: 2rem;
+}
+
+tr {
+  text-align: center;
+}

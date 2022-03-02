@@ -12,13 +12,13 @@ const syncAndSeed = async() => {
             Employee.create({name: 'Ethyl'}),
         ]);
         const [corolla, camry, rav4, fusion, mustang, civic, accord] = await Promise.all([
-            Car.create({brand: 'Toyota', modelName: 'Corolla', cost: 20000}),
-            Car.create({brand: 'Toyota', modelName: 'Camry', cost: 26000}),
-            Car.create({brand: 'Toyota', modelName: 'Rav4', cost: 26000}),
-            Car.create({brand: 'Ford', modelName: 'Fusion', cost: 25000}),
-            Car.create({brand: 'Ford', modelName: 'Mustang', cost: 40000}),
-            Car.create({brand: 'Honda', modelName: 'Civic', cost: 18000}),
-            Car.create({brand: 'Honda', modelName: 'Accord', cost: 32000}),
+            Car.create({brand: 'Toyota', modelName: 'Corolla', cost: '$20,000'}),
+            Car.create({brand: 'Toyota', modelName: 'Camry', cost: '$26,000'}),
+            Car.create({brand: 'Toyota', modelName: 'Rav4', cost: '$26,000'}),
+            Car.create({brand: 'Ford', modelName: 'Fusion', cost: '$25,000'}),
+            Car.create({brand: 'Ford', modelName: 'Mustang', cost: '$40,000'}),
+            Car.create({brand: 'Honda', modelName: 'Civic', cost: '$18,000'}),
+            Car.create({brand: 'Honda', modelName: 'Accord', cost: '$32,000'}),
         ]);
         await Promise.all([
             Sale.create({employeeId: lucy.id, carId: camry.id, color: 'Red'}),

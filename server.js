@@ -8,6 +8,7 @@ app.use('/api/employees', require('./routes/employees'))
 app.use('/api/cars', require('./routes/cars'))
 app.use('/api/sales', require('./routes/sales'))
 app.use('/dist', express.static(path.join(__dirname, 'dist')));
+app.use('/', express.static(path.join(__dirname, 'public')))
 
 app.get('/', async(req, res, next)=>{
     try{
