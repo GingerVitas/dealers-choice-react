@@ -1,5 +1,16 @@
+*{
+  background-color: #FAF9F6;
+  box-sizing: content-box;
+}
 table {
   margin: auto;
+  width: 50%;
+  padding: 0;
+}
+h1{
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
 }
 
 th {
@@ -9,4 +20,30 @@ th {
 
 tr {
   text-align: center;
+  padding: 1.5rem;
+}
+#navbar {
+  display: flex;
+  align-items: center;
+}
+#navbar ul{
+  width: 50%;
+  margin: auto auto 3rem auto;
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  list-style-type: none;
+}
+
+#navbar li{
+  margin: 1rem;
+  padding: 0;
+  display: inline;
+}
+
+#renderContainer{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: 0;
 }

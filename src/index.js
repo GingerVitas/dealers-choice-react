@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import EmployeeTable from './EmployeeTable';
 import InventoryTable from './InventoryTable';
 import SalesTable from './SalesTable'
+import '../public/main.css';
 
 
 class App extends Component {
@@ -25,14 +26,6 @@ class App extends Component {
             Axios.get('/api/sales')
         ]);
         this.setState({employees:employees.data, cars:cars.data, sales:sales.data})
-        
-        // const employeeResponse = await Axios.get('/api/employees');
-        // const employees = employeeResponse.data;
-        // const carResponse = await Axios.get('/api/cars');
-        // const cars = carResponse.data;
-        // const salesResponse = await Axios.get('/api/sales');
-        // const sales = salesResponse.data;
-        // this.setState({employees, cars, sales})
     }
 
     async listSelector(arr) {
