@@ -4,9 +4,10 @@
 }
 table {
   margin: auto;
-  width: 50%;
-  padding: 0;
+  padding: 2rem;
+  border-collapse: collapse;
 }
+
 h1{
   text-align: center;
   font-size: 60px;
@@ -20,15 +21,21 @@ th {
 
 tr {
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem;
 }
+td {
+  text-align: center;
+  border: 1px solid;
+  min-width: 100px;
+}
+
 #navbar {
   display: flex;
   align-items: center;
 }
 #navbar ul{
   width: 50%;
-  margin: auto auto 3rem auto;
+  margin: auto;
   display: flex;
   padding: 0;
   justify-content: center;
@@ -45,5 +52,4 @@ tr {
   display: flex;
   align-items: center;
   margin: auto;
-  padding: 0;
 }

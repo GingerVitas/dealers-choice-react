@@ -1,10 +1,10 @@
 import Axios from 'axios';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import EmployeeTable from './EmployeeTable';
-import InventoryTable from './InventoryTable';
-import SalesTable from './SalesTable'
-import SingleEmployee from './SingleEmployee';
+import EmployeeTable from './components/EmployeeTable';
+import InventoryTable from './components/InventoryTable';
+import SalesTable from './components/SalesTable'
+import SingleEmployee from './components/SingleEmployee';
 import '../public/main.css';
 
 
