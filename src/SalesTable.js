@@ -18,6 +18,7 @@ const SalesTable = props => {
                 {sales.map(sale=> <SalesRow key={sale.id} sale={sale} />)}
                 <tr>
                     <td>Total Sales</td>
+                    <td></td>
                     <td>{formatter.format(sales.reduce((acc, curr)=> acc + curr.car.cost, 0))}</td>
                 </tr>
             </tbody>

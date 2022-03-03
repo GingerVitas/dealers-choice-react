@@ -9,10 +9,11 @@ const SingleEmployee = props => {
     currency: 'USD'
 });
   return (
-    <div>
-      <h2>{employee.name}'s Sales</h2>
       <table>
         <tbody>
+          <tr>
+            <th colSpan='2'>{employee.name}'s Sales</th>
+          </tr>
           { sales.map( sale => <EmployeeSales key={sale.id} sale={sale} />) }
           <tr>
             <td>Total Sales</td>
@@ -20,7 +21,6 @@ const SingleEmployee = props => {
           </tr>
         </tbody>
       </table>
-    </div>
   )
 }
 
