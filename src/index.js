@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import EmployeeTable from './EmployeeTable';
 import InventoryTable from './InventoryTable';
 import SalesTable from './SalesTable'
+import SingleEmployee from './SingleEmployee';
 import '../public/main.css';
 
 
@@ -14,9 +15,11 @@ class App extends Component {
             employees: [],
             cars: [],
             sales: [],
-            selectedList: []
+            selectedList: [],
+            selectedEmployee: {}
         },
-        this.listSelector = this.listSelector.bind(this)
+        this.listSelector = this.listSelector.bind(this);
+        this.employeeSelector = this.employeeSelector.bind(this);
     }
 
     async componentDidMount() {
@@ -30,6 +33,12 @@ class App extends Component {
 
     async listSelector(arr) {
         this.setState({selectedList: arr})
+        this.setState({selectedEmployee: {}})
+    }
+
+    async employeeSelector(employeeId) {
+        const employee = (await Axios.get(`/api/employees/${employeeId}`)).data
+        this.setState({selectedEmployee: employee})
     }
 
     render() {
@@ -37,6 +46,9 @@ class App extends Component {
         const cars = this.state.cars;
         const sales = this.state.sales;
         const selectedList = this.state.selectedList
+        const selectedEmployee = this.state.selectedEmployee;
+        const employeeSelector = this.employeeSelector;
+
         return (
             <div id="Main">
                 <div>
@@ -51,7 +63,8 @@ class App extends Component {
                 </div>
                 <div id='renderContainer'>
                     {
-                        selectedList === employees ? <EmployeeTable employees={employees} />
+                        !!selectedEmployee && selectedEmployee.id ? <SingleEmployee employee={selectedEmployee} />
+                        : selectedList === employees ? <EmployeeTable employees={employees} employeeSelector={employeeSelector}/>
                         : selectedList === cars ? <InventoryTable cars={cars} />
                         : selectedList === sales ? <SalesTable sales={sales} />
                         : []

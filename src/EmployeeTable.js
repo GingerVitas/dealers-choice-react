@@ -3,6 +3,7 @@ import EmployeeRow from './EmployeeRow';
 
 const EmployeeTable = props => {
     const employees = props.employees;
+    const employeeSelector = props.employeeSelector;
 
     return (
         <table>
@@ -11,7 +12,7 @@ const EmployeeTable = props => {
                 <th>Salesperson</th>
                 <th>Number of Sales</th>
             </tr>
-                {employees.map(employee=> <EmployeeRow key={employee.id} employee={employee} />)} 
+                {employees.map(employee=> <EmployeeRow key={employee.id} employee={employee} employeeSelector={employeeSelector}/>)} 
             </tbody>   
         </table>
     )
